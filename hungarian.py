@@ -50,11 +50,12 @@ class Hungarian:
         hungarian.get_total_potential()
     """
 
-    def __init__(self, input_matrix=None, is_profit_matrix=False):
+    def __init__(self, input_matrix=None, is_profit_matrix=True):
         """
         input_matrix is a List of Lists.
         input_matrix is assumed to be a cost matrix unless is_profit_matrix is True.
         """
+        print ('usao u init')
         if input_matrix is not None:
             # Save input
             my_matrix = np.array(input_matrix)
@@ -90,7 +91,7 @@ class Hungarian:
         """Returns expected value after calculation."""
         return self._totalPotential
 
-    def calculate(self, input_matrix=None, is_profit_matrix=False):
+    def calculate(self, input_matrix=None, is_profit_matrix=True):
         """
         Implementation of the Hungarian (Munkres) Algorithm.
 
@@ -160,6 +161,8 @@ class Hungarian:
         for row, column in self._results:
             value += self._input_matrix[row, column]
         self._totalPotential = value
+
+        print ('Izracunao sam')
 
     @staticmethod
     def make_cost_matrix(profit_matrix):
